@@ -1,0 +1,44 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+class App
+{
+    +start()
+}
+item o-- masterList
+
+class Controller
+class item
+{
+    --Attributes--
+    String Description
+    String Due Date
+    Boolean Complete
+    --Methods--
+    newItem(String Description, int dueDate)
+    editDesc(item editedItem, String newDesc)
+    editDue(item editedItem, int newDate)
+    markDone(item completedItem)
+}
+class masterList
+{
+    --Attributes--
+    String Title
+    Item[] Items
+    --Methods--
+    addList(String Title)
+    removeList(masterList list)
+    editTitle(String newTitle, masterList list)
+    addNewItem(masterList list)
+    removeItem(masterList list, item removed)
+    editDesc(masterList list, item editItem)
+    editDate(masterList list, item editItem)
+    setAsDone(masterList list, item doneItem)
+    displayItems(masterList list)
+    displayIncomplete(masterList list)
+    displayComplete(masterList list)
+    saveList(masterList list)
+    saveAll()
+    loadList(File input)
+    loadAll(File input)
+}
+@enduml
